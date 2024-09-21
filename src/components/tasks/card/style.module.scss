@@ -1,0 +1,93 @@
+$border-color-secondary: #B0BBD1;
+$border-color-primary: #0796D3;
+$hover-color: #F7F9FD;
+
+$checkbox-checked-color: #A0DCF6;
+$checkbox-icon-color: #0796D3;
+
+@mixin checkbox-checked-theme {
+  background-color: $checkbox-checked-color;
+  border: 1px solid $border-color-primary;
+  color: $checkbox-icon-color;
+}
+
+@mixin checkbox-unchecked-theme {
+  background-color: transparent;
+  border: 1px solid $border-color-secondary;
+}
+
+@mixin checkbox-container {
+  height: 1.5rem;
+  min-width: 1.5rem;
+  border-radius: 0.25rem;
+  display: grid;
+  place-items: center;
+  font-size: large;
+  cursor: pointer;
+  outline: none;
+}
+
+.card-task-container {
+  border: 1px dashed $border-color-secondary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: .5rem;
+  padding: 1rem;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+    border: 1px dashed transparent;
+    transition: all .1s ease-in;
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    transition: all .1s ease-in;
+  }
+
+  &__content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+
+    p {
+      font-size: 1rem;
+      line-height: 19.36px;
+      font-weight: 400;
+    }
+  }
+}
+
+.checkbox-checked {
+  @include checkbox-container;
+  @include checkbox-checked-theme;
+}
+
+.checkbox-unchecked {
+  @include checkbox-container;
+  @include checkbox-unchecked-theme;
+}
+
+.trash-icon {
+  color: $border-color-secondary;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+}
+
+.text-task-checked {
+  text-decoration: line-through;
+  color: black;
+  opacity: 0.54;
+}
+

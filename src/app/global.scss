@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+$blue-dark: #0796D3;
+$blue-light: #53C0F0;
+$red-dark: #D30707;
+$red-light: #F05353;
+$background-color: #E7EEFB;
+$line-color: #D7DDE9;
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Inter Tight', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+@mixin button {
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+// Responsividade
+@media screen and (min-width: 768px) {
+  body {
+    padding: .5rem 2rem; 
+  }
+  .container__tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    margin-left: 6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding: .5rem; 
+  }
+}
+
+header {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 1.5rem 0;
+
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+  }
+
+  span {
+    color: black;
+    opacity: 56%;
+    font-size: 1rem;
+  }
+}
+
+hr {
+  border: none;
+  border: 1px solid $line-color;
+}
+
+button.primary {
+  background-image: linear-gradient(90deg, $blue-dark 0%, $blue-light 68.65%);
+  color: white;
+  font-weight: 500;
+  @include button;
+}
+
+button.secondary {
+  background-color: $background-color;
+  color: black;
+  @include button;
+  font-weight: 400;
+}
+
+button.destructive {
+  background-image: linear-gradient(90deg, $red-dark 0%, $red-light 68.65%);
+  color: white;
+  @include button;
+  font-weight: 500;
+}
+
+button#delete-task {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 100%;
+
+  span {
+    font-size: 1rem;
+    color: black;
+    font-weight: 400;
+  }
+
+  input {
+    display: flex;
+    padding: 1rem;
+    border: 1px solid $background-color;
+    border-radius: .5rem;
+    font-size: 1rem;
+  }
+
+  input::placeholder {
+    color: black;
+    opacity: 56%;
+  }
+
+  input:focus {
+    outline: none;
+    border: 1px solid $blue-dark;
+  }
+}
+
+.container {
+  padding: 1rem;
+
+  &__tasks__content {
+    padding: 2rem 0;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+}
