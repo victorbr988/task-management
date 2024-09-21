@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header>
-      <img src="/imgs/Logo.svg" alt="Logo" />
+      <img src="/imgs/logo.svg" alt="Logo" />
       <h1>Bem vindo de volta, Marcus</h1>
       <span>{ datetimeFormat.charAt(0).toUpperCase() + datetimeFormat.slice(1) }</span>
     </header>
